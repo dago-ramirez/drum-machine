@@ -3,7 +3,7 @@ import Button from './Button'
 
 export default function Keyboard() {
     return (
-        <div className="w-full md:w-100 p-5 flex flex-col items-center justify-center">
+        <div id="display" className="w-full md:w-100 p-5 flex flex-col items-center justify-center">
             <div className="flex flex-row justify-between">
                 <Button innerText={'Q'} />
                 <Button innerText={'W'} />
