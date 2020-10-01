@@ -1,24 +1,12 @@
-import React from 'react'
-import Button from './Button'
+import React from 'react';
+import Button from './Button';
 
-export default function Keyboard() {
+export default function Keyboard({bankOne, bankTwo}) {
+    const KEY_PAD = bankOne.map(item => <Button innerText={item.keyTrigger} urlSound={item.url} key={item.keyTrigger} />)
+
     return (
-        <div id="display" className="w-full md:w-100 p-5 flex flex-col items-center justify-center">
-            <div className="flex flex-row justify-between">
-                <Button innerText={'Q'} />
-                <Button innerText={'W'} />
-                <Button innerText={'E'} />
-            </div>
-            <div className="flex flex-row justify-between">
-                <Button innerText={'A'} />
-                <Button innerText={'S'} />
-                <Button innerText={'D'} />
-            </div>
-            <div className="flex flex-row justify-between">
-                <Button innerText={'Z'} />
-                <Button innerText={'X'} />
-                <Button innerText={'C'} />
-            </div>
+        <div id="display" className="w-100 p-5 flex flex-row flex-wrap items-center justify-center mx-auto mt-10 md:mt-auto">
+            {KEY_PAD}
         </div>
     )
 }
