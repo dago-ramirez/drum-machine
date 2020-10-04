@@ -3,7 +3,7 @@ import React from 'react';
 export default function InputRange() {
     return (
         <>
-            <input type="range" name="" id="input-range" min="0" max="100" list="tickmarks" className="w-40 my-2 input-class" disabled />
+            <input type="range" name="" id="input-range" min="0" max="100" list="tickmarks" className="w-48 my-2 input-class" disabled />
             <datalist id="tickmarks">
                 <option value="0" />
                 <option value="10" />

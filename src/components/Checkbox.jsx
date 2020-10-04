@@ -3,32 +3,37 @@ import { ControlContex } from './Container';
 import '../styles/components.css';
 
 export default function Checkbox({ idLabel, idCheckbox }) {
-    const { checkboxPower, setCheckboxPower, checkboxBank, setCheckboxBank } = useContext(ControlContex);
-    const handleOnClick = (e) => {
-        const btn = document.getElementById(e.target.id);
+    const { checkboxPower, setCheckboxPower, checkboxBank, setCheckboxBank, setDisplay } = useContext(ControlContex);
+    const handleOnClick = () => {
+        const BTN_POWER = document.getElementById('checkbox-power');
+        const BTN_BANK = document.getElementById('checkbox-bank');
         const INPUT_RANGE = document.getElementById('input-range');
         const CHECKBOX_BANK = document.getElementById('bank');
-        
-        // Se valida si se activa el checkbox de encendido 
         if( idCheckbox === 'power' ) {
             setCheckboxPower(!checkboxPower);
-            if( document.getElementById(idCheckbox).checked ) {
+            if( checkboxPower ) {
+                BTN_POWER.style.setProperty('--bg-btn', ' #dfdbdb');
+                BTN_POWER.style.setProperty('--btn-color', '#5c5959');
+                BTN_BANK.style.setProperty('--bg-btn', ' #dfdbdb');
+                BTN_BANK.style.setProperty('--btn-color', '#5c5959');
                 INPUT_RANGE.disabled = true;
                 CHECKBOX_BANK.disabled = true;
+                setDisplay('')
             } else {
+                BTN_POWER.style.setProperty('--bg-btn', '#C6F6D5');
+                BTN_POWER.style.setProperty('--btn-color', '#38A169');
+                BTN_BANK.style.setProperty('--bg-btn', ' #C6F6D5');
+                BTN_BANK.style.setProperty('--btn-color', '#38A169');
                 INPUT_RANGE.disabled = false;
                 CHECKBOX_BANK.disabled = false;
             }
         } else {
-            setCheckboxBank(!checkboxBank);
-        }
-
-        if (document.getElementById(idCheckbox).checked) {
-            btn.style.setProperty('--bg-btn', ' #dfdbdb');
-            btn.style.setProperty('--btn-color', '#5c5959');
-        } else {
-            btn.style.setProperty('--bg-btn', '#C6F6D5');
-            btn.style.setProperty('--btn-color', '#38A169');
+            if( !checkboxPower ) {
+                setDisplay(checkboxBank ? 'Header Kit' : 'Smooth Piano Kit');
+                setCheckboxBank(!checkboxBank);
+                BTN_BANK.style.setProperty('--bg-btn', ' #C6F6D5');
+                BTN_BANK.style.setProperty('--btn-color', '#38A169');
+            }
         }
     }
 

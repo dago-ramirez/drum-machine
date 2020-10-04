@@ -13,11 +13,11 @@
     transform: translateX(23px);
 }
 
-#checkboxPower {
+#checkbox-power {
     background-color: var(--bg-btn);
 }
 
-#checkboxPower::before {
+#checkbox-power::before {
     content: '';
     display: block;
     width: 17px;
@@ -28,11 +28,11 @@
     transform: translateX(0);
 }
 
-#checkboxBank {
+#checkbox-bank {
     background-color: var(--bg-btn);
 }
 
-#checkboxBank::before {
+#checkbox-bank::before {
     content: '';
     display: block;
     width: 17px;
