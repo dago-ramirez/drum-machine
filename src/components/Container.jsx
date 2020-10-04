@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { createContext } from 'react';
 import ControlSet from './ControlSet';
 import Keyboard from './Keyboard';
 
@@ -116,12 +117,20 @@ const bankTwo = [
     }
 ];
 
+export const ControlContex = createContext(null);
 
 export default function Container() {
+    const [checkboxPower, setCheckboxPower] = useState(false);
+    const [checkboxBank, setCheckboxBank] = useState(false);
+    const [display, setDisplay] = useState('')
+    const BANK = checkboxBank ? bankTwo : bankOne;
+    
     return (
         <div id="drum-machine" className="w-full md:w-164 flex flex-col md:flex-row bg-blue-300 border border-blue-700 rounded-lg">
-            <Keyboard bankOne={bankOne} bankTwo={bankTwo} />
-            <ControlSet bankOne={bankOne} bankTwo={bankTwo} />
+            <ControlContex.Provider value={{ checkboxPower, setCheckboxPower, checkboxBank, setCheckboxBank, display, setDisplay, BANK }} >
+                <Keyboard />
+                <ControlSet />
+            </ControlContex.Provider>
         </div>
     )
 }

@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ControlContex } from './Container';
 import '../styles/components.css';
 
 export default function Checkbox({ idLabel, idCheckbox }) {
-
+    const { checkboxPower, setCheckboxPower, checkboxBank, setCheckboxBank } = useContext(ControlContex);
     const handleOnClick = (e) => {
         const btn = document.getElementById(e.target.id);
         const INPUT_RANGE = document.getElementById('input-range');
         const CHECKBOX_BANK = document.getElementById('bank');
-
+        
         // Se valida si se activa el checkbox de encendido 
         if( idCheckbox === 'power' ) {
+            setCheckboxPower(!checkboxPower);
             if( document.getElementById(idCheckbox).checked ) {
                 INPUT_RANGE.disabled = true;
                 CHECKBOX_BANK.disabled = true;
@@ -17,6 +19,8 @@ export default function Checkbox({ idLabel, idCheckbox }) {
                 INPUT_RANGE.disabled = false;
                 CHECKBOX_BANK.disabled = false;
             }
+        } else {
+            setCheckboxBank(!checkboxBank);
         }
 
         if (document.getElementById(idCheckbox).checked) {
