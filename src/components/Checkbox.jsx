@@ -28,11 +28,13 @@ export default function Checkbox({ idLabel, idCheckbox }) {
                 CHECKBOX_BANK.disabled = false;
             }
         } else {
-            if( !checkboxPower ) {
+            if( checkboxPower ) {
                 setDisplay(checkboxBank ? 'Header Kit' : 'Smooth Piano Kit');
                 setCheckboxBank(!checkboxBank);
                 BTN_BANK.style.setProperty('--bg-btn', ' #C6F6D5');
                 BTN_BANK.style.setProperty('--btn-color', '#38A169');
+            } else {
+                CHECKBOX_BANK.disabled = true;
             }
         }
     }

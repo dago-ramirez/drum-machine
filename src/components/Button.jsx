@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import { ControlContex } from './Container';
 
 export default function Button({ innerText, urlSound, disabled }) {
-    const { setDisplay, BANK } = useContext( ControlContex );
+    const { setDisplay, volume, BANK } = useContext( ControlContex );
     const playSound = () => {
         const TAG_AUDIO = document.getElementById(urlSound);
+        TAG_AUDIO.volume = volume;
         TAG_AUDIO.play();
         BANK.forEach(item => {
             if( item.keyTrigger === innerText ) {

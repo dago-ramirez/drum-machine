@@ -122,12 +122,13 @@ export const ControlContex = createContext(null);
 export default function Container() {
     const [checkboxPower, setCheckboxPower] = useState(false);
     const [checkboxBank, setCheckboxBank] = useState(false);
-    const [display, setDisplay] = useState('')
+    const [display, setDisplay] = useState('');
+    const [volume, setVolume] = useState(0.3);
     const BANK = checkboxBank ? bankTwo : bankOne;
     
     return (
         <div id="drum-machine" className="w-full md:w-164 flex flex-col md:flex-row bg-blue-300 border border-blue-700 rounded-lg">
-            <ControlContex.Provider value={{ checkboxPower, setCheckboxPower, checkboxBank, setCheckboxBank, display, setDisplay, BANK }} >
+            <ControlContex.Provider value={{ checkboxPower, setCheckboxPower, checkboxBank, setCheckboxBank, display, setDisplay, volume, setVolume, BANK }} >
                 <Keyboard />
                 <ControlSet />
             </ControlContex.Provider>
