@@ -40,7 +40,7 @@ export default function Checkbox({ idLabel, idCheckbox }) {
     }
 
     return (
-        <div className="btn-status my-2" >
+        <div className="btn-status mb-2" >
             <p className='text-blue-700 font-black capitalize' >{idCheckbox}</p>
             <input type="checkbox" name="checkbox" id={idCheckbox} className="hidden" />
             <label htmlFor={idCheckbox} id={idLabel} onClick={handleOnClick}

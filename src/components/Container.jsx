@@ -127,7 +127,7 @@ export default function Container() {
     const BANK = checkboxBank ? bankTwo : bankOne;
     
     return (
-        <div id="drum-machine" className="w-full md:w-164 flex flex-col md:flex-row bg-blue-300 border border-blue-700 rounded-lg">
+        <div id="drum-machine" className="w-full md:w-164 mx-8 my-4 sm:mx-16 sm:my-auto flex flex-col md:flex-row justify-center items-center bg-blue-300 border border-blue-700 rounded-lg">
             <ControlContex.Provider value={{ checkboxPower, setCheckboxPower, checkboxBank, setCheckboxBank, display, setDisplay, volume, setVolume, BANK }} >
                 <Keyboard />
                 <ControlSet />
